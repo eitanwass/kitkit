@@ -12,7 +12,7 @@
 #define NO_ERROR_CODE 0
 
 extern void set_verbose(bool state);
-extern bool is_verbose();
+extern bool is_verbose(void);
 
 typedef int ErrorCode;
 
@@ -29,7 +29,7 @@ typedef int ErrorCode;
 
 #define push_error(err, desc, ...) push_log(true, desc " [err %d]\n", ##__VA_ARGS__, err)
 
-// Check that the expr is truthy. Else log custom description
+/* Check that the expr is truthy. Else log custom description */
 #define CHECK_LOG(expr, desc, ...) do {         \
     if (!(expr)) {                              \
         err = errno;                            \
@@ -38,7 +38,7 @@ typedef int ErrorCode;
     }                                           \
 } while(0)
 
-// Check that the expr is truthy. Else log custom description, and return (used inside cleanup)
+/* Check that the expr is truthy. Else log custom description, and return (used inside cleanup) */
 #define CHECK_LOG_RETURN(expr, desc, ...) do {  \
     if (!(expr)) {                              \
         err = errno;                            \
@@ -47,7 +47,7 @@ typedef int ErrorCode;
     }                                           \
 } while(0)
 
-// Check that the expr is truthy. Else log the error
+/* Check that the expr is truthy. Else log the error */
 #define CHECK(expr) CHECK_LOG(expr, "CHECK")
 
 #define CHECK_FAIL() CHECK_LOG(false, "CHECK FAIL")

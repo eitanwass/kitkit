@@ -6,6 +6,6 @@ void set_verbose(const bool state) {
     g_verbose = state;
 }
 
-bool is_verbose() {
+bool is_verbose(void) {
     return g_verbose;
-} 
+}

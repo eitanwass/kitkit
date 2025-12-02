@@ -1,7 +1,7 @@
 #ifndef __CROSS_UTILS_H__
 #define __CROSS_UTILS_H__
 
-#include <stdlib.h>
+#include <stddef.h>
 
 size_t strnlen(const char *str, size_t max);
 
